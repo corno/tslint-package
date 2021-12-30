@@ -1,0 +1,28 @@
+{
+  "name": "tslint-package",
+  "version": "0.0.1",
+  "description": "bundling of all packages needed for tslint to work",
+  "main": "index.js",
+  "scripts": {
+    "validatePublishReadiness": "git diff --exit-code && ncu -u --packageFile package.json && npm install",
+    "pubMin": "npm run validatePublishReadiness && npm version minor && git push && npm publish",
+    "pubPatch": "npm run validatePublishReadiness && npm version patch && git push && npm publish",
+    "update2latest": "ncu -u --packageFile package.json && nsi",
+    "updateAndCommit": "npm run validatePublishReadiness && npm run update2latest && npm run test && git commit -am \"u2l\"",
+    "update2latestAndPublishMinor": "npm run updateAndCommit && npm run pubMin",
+    "update2latestAndPublishPath": "npm run updateAndCommit && npm run pubPatch"
+  },
+  "keywords": [
+    "tslint",
+    "package"
+  ],
+  "author": "Corno",
+  "license": "ISC",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/eslint-plugin-tslint": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint": "^8.5.0",
+    "typescript": "^4.5.4"
+  }
+}
