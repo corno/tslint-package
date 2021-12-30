@@ -1,6 +1,6 @@
 {
   "name": "tslint-package",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "bundling of all packages needed for tslint to work",
   "main": "index.js",
   "scripts": {
